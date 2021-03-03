@@ -6,6 +6,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Splash from '../screens/Splash';
 import Game from '../screens/Game';
 import GameOver from '../screens/GameOver';
+import StartNow from '../screens/StartNow';
+import Naming from '../screens/Naming';
 
 import {navOptionHandler} from '../constants/functions';
 
@@ -14,7 +16,7 @@ const Stack = createStackNavigator();
 function StackRoute() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Game">
+      <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen
           name="Splash"
           component={Splash}
@@ -24,6 +26,16 @@ function StackRoute() {
         <Stack.Screen
           name="GameOver"
           component={GameOver}
+          options={navOptionHandler}
+        />
+        <Stack.Screen
+          name="StartNow"
+          component={StartNow}
+          options={navOptionHandler}
+        />
+        <Stack.Screen
+          name="Naming"
+          component={Naming}
           options={navOptionHandler}
         />
       </Stack.Navigator>

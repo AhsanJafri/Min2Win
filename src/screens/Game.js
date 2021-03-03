@@ -24,10 +24,12 @@ export class Game extends Component {
   }
   componentDidMount() {
     setInterval(() => {
-      if (this.state.timer < 60) {
+      if (this.state.timer < 5) {
         this.setState({timer: this.state.timer + 1});
       } else {
-        this.props.navigation.navigate('GameOver');
+        this.props.navigation.navigate('GameOver', {
+          correct: correct,
+        });
       }
     }, 1000);
     this.setState({question: getQuestion()});
@@ -52,6 +54,7 @@ export class Game extends Component {
             width: '100%',
             justifyContent: 'center',
             alignItems: 'center',
+            color: '#FFFF',
           }}>
           <TimerFunction label={timer} />
 
@@ -60,7 +63,7 @@ export class Game extends Component {
         <View style={{height: CONTENT}}>
           <View
             style={{
-              height: CONTENT / 3,
+              height: CONTENT / 2,
               alignItems: 'center',
               justifyContent: 'center',
             }}>
@@ -86,22 +89,52 @@ export class Game extends Component {
               style={{
                 flex: 1,
                 flexDirection: 'row',
-                width: '80%',
-                justifyContent: 'space-between',
+                width: '100%',
+                justifyContent: 'space-around',
                 alignItems: 'center',
               }}>
               <TouchableOpacity
+                style={{
+                  justifyContent: 'center',
+                  alignSelf: 'center',
+                  width: '40%',
+                  height: '55%',
+                  backgroundColor: 'tomato',
+                  borderRadius: 15,
+                }}
                 onPress={() =>
                   this.handleOnPressUpdate(this.state.question.choice1)
                 }>
-                <Text>{this.state.question.choice1}</Text>
+                <Text
+                  style={{
+                    alignSelf: 'center',
+                    fontWeight: 'bold',
+                    color: '#ffff',
+                  }}>
+                  {this.state.question.choice1}
+                </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
+                style={{
+                  justifyContent: 'center',
+                  alignSelf: 'center',
+                  width: '40%',
+                  height: '55%',
+                  backgroundColor: 'tomato',
+                  borderRadius: 15,
+                }}
                 onPress={() =>
                   this.handleOnPressUpdate(this.state.question.choice2)
                 }>
-                <Text>{this.state.question.choice2}</Text>
+                <Text
+                  style={{
+                    alignSelf: 'center',
+                    fontWeight: 'bold',
+                    color: '#ffff',
+                  }}>
+                  {this.state.question.choice2}
+                </Text>
               </TouchableOpacity>
             </View>
 
@@ -109,22 +142,52 @@ export class Game extends Component {
               style={{
                 flex: 1,
                 flexDirection: 'row',
-                width: '80%',
-                justifyContent: 'space-between',
+                width: '100%',
+                justifyContent: 'space-around',
                 alignItems: 'center',
               }}>
               <TouchableOpacity
+                style={{
+                  justifyContent: 'center',
+                  alignSelf: 'center',
+                  width: '40%',
+                  height: '55%',
+                  backgroundColor: 'tomato',
+                  borderRadius: 15,
+                }}
                 onPress={() =>
                   this.handleOnPressUpdate(this.state.question.choice3)
                 }>
-                <Text>{this.state.question.choice3}</Text>
+                <Text
+                  style={{
+                    alignSelf: 'center',
+                    fontWeight: 'bold',
+                    color: '#ffff',
+                  }}>
+                  {this.state.question.choice3}
+                </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
+                style={{
+                  justifyContent: 'center',
+                  alignSelf: 'center',
+                  width: '40%',
+                  height: '55%',
+                  backgroundColor: 'tomato',
+                  borderRadius: 15,
+                }}
                 onPress={() =>
                   this.handleOnPressUpdate(this.state.question.choice4)
                 }>
-                <Text>{this.state.question.choice4}</Text>
+                <Text
+                  style={{
+                    alignSelf: 'center',
+                    fontWeight: 'bold',
+                    color: '#ffff',
+                  }}>
+                  {this.state.question.choice4}
+                </Text>
               </TouchableOpacity>
             </View>
           </View>

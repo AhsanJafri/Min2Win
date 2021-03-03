@@ -43,7 +43,7 @@ export default class Splash extends Component {
         toValue: 1,
         duration: 1500,
       }),
-    ]).start(() => this.props.navigation.navigate('Main'));
+    ]).start(() => this.props.navigation.navigate('StartNow'));
   };
 
   render() {
@@ -55,34 +55,36 @@ export default class Splash extends Component {
 
     return (
       <View style={styles.container}>
-        <Text>Hello</Text>
-        {/* <Animated.View
-          style={{ flexDirection: "row", position: "absolute", opacity: View1 }}
-        >
-          <Image source={require("../../assets/D.png")} />
-          <Image source={require("../../assets/O.png")} />
-          <Image source={require("../../assets/N.png")} />
-          <Image source={require("../../assets/E.png")} />
+        <Animated.View
+          style={{flexDirection: 'row', position: 'absolute', opacity: View1}}>
+          <Image
+            source={require('../assests/images/m.png')}
+            style={{width: 50, height: 50}}
+          />
+          <Image source={require('../assests/images/i.png')} />
+          <Image source={require('../assests/images/n.png')} />
+          <Image source={require('../assests/images/u.png')} />
+          <Image source={require('../assests/images/t.png')} />
+          <Image source={require('../assests/images/e.png')} />
+          <Image source={require('../assests/images/s.png')} />
         </Animated.View>
         <Animated.View
-          style={{ flexDirection: "row", position: "absolute", opacity: View2 }}
-        >
-          <Image source={require("../../assets/W.png")} />
-          <Image source={require("../../assets/I.png")} />
-          <Image source={require("../../assets/T.png")} />
-          <Image source={require("../../assets/H.png")} />
+          style={{flexDirection: 'row', position: 'absolute', opacity: View2}}>
+          <Image source={require('../assests/images/t.png')} />
+          <Image source={require('../assests/images/o.png')} />
         </Animated.View>
         <Animated.View
-          style={{ flexDirection: "row", position: "absolute", opacity: View3 }}
-        >
-          <Image source={require("../../assets/I.png")} />
-          <Image source={require("../../assets/T.png")} />
+          style={{flexDirection: 'row', position: 'absolute', opacity: View3}}>
+          <Image source={require('../assests/images/w.png')} />
+          <Image source={require('../assests/images/i.png')} />
+          <Image source={require('../assests/images/n.png')} />
+          <Image source={require('../assests/images/i.png')} />
+          <Image source={require('../assests/images/t.png')} />
         </Animated.View>
 
         <Animated.View
-          style={{ flexDirection: "row", position: "absolute", opacity: View4 }}
-        >
-          <Animated.Image
+          style={{flexDirection: 'row', position: 'absolute', opacity: View4}}>
+          {/* <Animated.Image
             source={{
               uri:
                 "https://media.istockphoto.com/photos/check-mark-picture-id1093915024?k=6&m=1093915024&s=612x612&w=0&h=CghyYdBSZWCnyB-Tv8X4NP74pzWcsp6Kw2VXndnmxDo=",
@@ -93,8 +95,8 @@ export default class Splash extends Component {
               borderRadius: 150,
               transform: [{ scale: size }],
             }}
-          />
-        </Animated.View> */}
+          /> */}
+        </Animated.View>
       </View>
     );
   }
