@@ -13,30 +13,34 @@ const {height, width} = Dimensions.get('screen');
 const HEADER = height / 3 - 130;
 const CONTENT = height - HEADER;
 
+let correct = 0;
 export class Game extends Component {
   constructor() {
     super();
     this.state = {
       timer: 0,
       question: [],
-      correct: 0,
     };
   }
   componentDidMount() {
     setInterval(() => {
-      this.setState({timer: this.state.timer + 1});
+      if (this.state.timer < 60) {
+        this.setState({timer: this.state.timer + 1});
+      } else {
+        this.props.navigation.navigate('GameOver');
+      }
     }, 1000);
     this.setState({question: getQuestion()});
   }
 
   handleOnPressUpdate = (val) => {
     if (this.state.question.ans === val) {
-      this.setState({correct: this.state.correct + 1});
+      correct = correct + 1;
     }
     setTimeout(() => {
       this.setState({question: getQuestion()});
     }, 500);
-    console.log('Correct :::', this.state.correct);
+    console.log('Correct :::', correct);
   };
   render() {
     const {timer} = this.state;
@@ -53,11 +57,10 @@ export class Game extends Component {
 
           <Progressbar width={timer} />
         </View>
-        <View style={{height: CONTENT, borderWidth: 1}}>
+        <View style={{height: CONTENT}}>
           <View
             style={{
               height: CONTENT / 3,
-              borderWidth: 1,
               alignItems: 'center',
               justifyContent: 'center',
             }}>
@@ -76,7 +79,6 @@ export class Game extends Component {
           <View
             style={{
               height: CONTENT / 3,
-              borderWidth: 1,
               alignItems: 'center',
               justifyContent: 'center',
             }}>

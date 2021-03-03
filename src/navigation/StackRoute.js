@@ -5,6 +5,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Splash from '../screens/Splash';
 import Game from '../screens/Game';
+import GameOver from '../screens/GameOver';
 
 import {navOptionHandler} from '../constants/functions';
 
@@ -20,6 +21,11 @@ function StackRoute() {
           options={navOptionHandler}
         />
         <Stack.Screen name="Game" component={Game} options={navOptionHandler} />
+        <Stack.Screen
+          name="GameOver"
+          component={GameOver}
+          options={navOptionHandler}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
