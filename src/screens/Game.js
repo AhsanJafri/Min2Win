@@ -21,12 +21,11 @@ export class Game extends Component {
     super();
     this.state = {
       timer: 0,
-      question: [],
+      question: [1],
     };
   }
   componentDidMount() {
     this.TimerFunction();
-
     this.setState({question: getQuestion(1)});
   }
 
