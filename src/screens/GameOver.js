@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StatusBar, Text, View, TouchableOpacity, Image} from 'react-native';
 
+import {CommonActions} from '@react-navigation/native';
 export class GameOver extends Component {
   render() {
     return (
@@ -31,7 +32,7 @@ export class GameOver extends Component {
               borderRadius: 100,
             }}>
             <Text style={{fontSize: 20, color: '#FFF'}}>
-              Score {this.props.route.params.correct * 10}
+              {/* Score {this.props.route.params.correct * 10} */}
             </Text>
           </View>
           <View
@@ -50,20 +51,15 @@ export class GameOver extends Component {
                 alignItems: 'center',
                 borderRadius: 100,
               }}
-              onPress={() => this.props.navigation.navigate('Naming')}>
+              onPress={() =>
+                this.props.navigation.dispatch(
+                  CommonActions.reset({
+                    index: 0,
+                    routes: [{name: 'Splash'}],
+                  }),
+                )
+              }>
               <Text style={{fontSize: 16, color: '#FFF'}}>Play Again</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                height: '40%',
-                width: '100%',
-                backgroundColor: '#2d2926',
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius: 100,
-              }}
-              onPress={() => this.props.navigation.navigate('Naming')}>
-              <Text style={{fontSize: 16, color: '#FFF'}}>Exit</Text>
             </TouchableOpacity>
           </View>
         </View>

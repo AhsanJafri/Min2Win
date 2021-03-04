@@ -12,6 +12,7 @@ import {getQuestion} from '../constants/helper';
 const {height, width} = Dimensions.get('screen');
 const HEADER = height / 3 - 130;
 const CONTENT = height - HEADER;
+import {CommonActions} from '@react-navigation/native';
 
 let correct = 0;
 export class Game extends Component {
@@ -23,18 +24,27 @@ export class Game extends Component {
     };
   }
   componentDidMount() {
+    this.TimerFunction();
+  }
+
+  TimerFunction = () => {
     setInterval(() => {
       if (this.state.timer < 5) {
         this.setState({timer: this.state.timer + 1});
       } else {
-        this.props.navigation.navigate('GameOver', {
-          correct: correct,
-        });
+        this.setState({timer: 0});
+        this.props.navigation.dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [{name: 'GameOver'}],
+          }),
+        );
+        return;
       }
     }, 1000);
-    this.setState({question: getQuestion()});
-  }
 
+    this.setState({question: getQuestion()});
+  };
   handleOnPressUpdate = (val) => {
     if (this.state.question.ans === val) {
       correct = correct + 1;

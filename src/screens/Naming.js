@@ -11,21 +11,21 @@ import {
 } from 'react-native';
 var {height, width} = Dimensions.get('window');
 
+import {CommonActions} from '@react-navigation/native';
 export class Naming extends Component {
   constructor() {
     super();
-    this.state = {
-      Timer: 5,
-    };
+    this.state = {};
   }
   componentDidMount() {
-    setInterval(() => {
-      if (this.state.Timer === 0) {
-        this.setState({Timer: 5});
-        this.props.navigation.navigate('Game');
-      }
-      this.setState({Timer: this.state.Timer - 1});
-    }, 100);
+    setTimeout(() => {
+      this.props.navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{name: 'Game'}],
+        }),
+      );
+    }, 3000);
   }
   render() {
     const {Timer} = this.state;
@@ -90,8 +90,13 @@ export class Naming extends Component {
             </View>
             <View style={{flex: 1}}></View>
             <View style={{alignItems: 'center'}}>
-              <Text style={{fontSize: height * 0.04, fontFamily: 'serif'}}>
-                Game start in {Timer}
+              <Text
+                style={{
+                  fontSize: height * 0.04,
+                  fontFamily: 'serif',
+                  textAlign: 'center',
+                }}>
+                We Are Collecting Question. Game Will Start Soon
               </Text>
             </View>
           </View>
