@@ -15,6 +15,7 @@ const CONTENT = height - HEADER;
 import {CommonActions} from '@react-navigation/native';
 
 let correct = 0;
+let allQues = [];
 export class Game extends Component {
   constructor() {
     super();
@@ -25,33 +26,34 @@ export class Game extends Component {
   }
   componentDidMount() {
     this.TimerFunction();
+
+    this.setState({question: getQuestion(1)});
   }
 
   TimerFunction = () => {
     setInterval(() => {
-      if (this.state.timer < 5) {
+      if (this.state.timer < 60) {
         this.setState({timer: this.state.timer + 1});
       } else {
         this.setState({timer: 0});
-        this.props.navigation.dispatch(
-          CommonActions.reset({
-            index: 0,
-            routes: [{name: 'GameOver'}],
-          }),
-        );
+        this.props.navigation.navigate('GameOver', {
+          correct: correct,
+        });
+
         return;
       }
     }, 1000);
-
-    this.setState({question: getQuestion()});
   };
   handleOnPressUpdate = (val) => {
     if (this.state.question.ans === val) {
       correct = correct + 1;
     }
-    setTimeout(() => {
-      this.setState({question: getQuestion()});
-    }, 500);
+    let i = Math.floor(Math.random() * Math.floor(15));
+    if (allQues.indexOf(i) < 0) {
+      setTimeout(() => {
+        this.setState({question: getQuestion(i)});
+      }, 500);
+    }
     console.log('Correct :::', correct);
   };
   render() {

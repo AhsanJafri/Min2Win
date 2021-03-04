@@ -32,7 +32,7 @@ export class GameOver extends Component {
               borderRadius: 100,
             }}>
             <Text style={{fontSize: 20, color: '#FFF'}}>
-              {/* Score {this.props.route.params.correct * 10} */}
+              Score {this.props.route.params.correct * 10}
             </Text>
           </View>
           <View

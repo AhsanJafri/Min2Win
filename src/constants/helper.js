@@ -150,7 +150,6 @@ export const Questions = [
   },
 ];
 
-export const getQuestion = () => {
-  let no = Math.floor(Math.random() * Math.floor(15));
+export const getQuestion = (no) => {
   return Questions[no];
 };
