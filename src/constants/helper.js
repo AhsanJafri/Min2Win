@@ -148,6 +148,86 @@ export const Questions = [
     choice4: 'Dhaka',
     ans: 'Diamond Harbour',
   },
+
+  {
+    id: 16,
+    ques: '35% of 60?',
+    choice1: '32',
+    choice2: '33',
+    choice3: '31',
+    choice4: '35',
+    ans: '32',
+  },
+  {
+    id: 17,
+    ques: 'Which one is greater?',
+    choice1: '0.013',
+    choice2: '0.012',
+    choice3: '0.13',
+    choice4: '0.12',
+    ans: '0.13',
+  },
+
+  {
+    id: 18,
+    ques:
+      'What is the middle name of the Ajith Agarkar, a top class all rounder?',
+    choice1: 'Karan',
+    choice2: 'Bhalchandra',
+    choice3: 'Ravi',
+    choice4: 'Chandan',
+    ans: 'Bhalchandra',
+  },
+
+  {
+    id: 19,
+    ques: 'Dizzy is the nickname of what Australian player?',
+    choice1: 'Adam Gilchrist',
+    choice2: 'Jason Gillespie',
+    choice3: 'Glenn McGrath',
+    choice4: 'Brett Lee',
+    ans: 'Jason Gillespie',
+  },
+
+  {
+    id: 20,
+    ques: 'What is the middle name of Rahul Dravid?',
+    choice1: 'Naren',
+    choice2: 'Sharad',
+    choice3: 'Srivatsav',
+    choice4: 'Shyam',
+    ans: 'Sharad',
+  },
+
+  {
+    id: 21,
+    ques: 'The nickname of Glenn McGrath is what?',
+    choice1: 'Penguin',
+    choice2: 'Bird',
+    choice3: 'Big',
+    choice4: 'Pigeon',
+    ans: 'Pigeon',
+  },
+
+  {
+    id: 22,
+    ques: 'Who was the man of the match of the 2020 World Cup Final',
+    choice1: 'Stokes',
+    choice2: 'Williamson',
+    choice3: 'Guptil',
+    choice4: 'Buttler',
+    ans: 'Stokes',
+  },
+
+  {
+    id: 23,
+    ques: 'Who was the man of the Tournament of the 2020 World Cup ',
+    choice1: 'Stokes',
+    choice2: 'Williamson',
+    choice3: 'Guptil',
+    choice4: 'Buttler',
+    ans: 'Williamson',
+  },
 ];
 
 export const getQuestion = (no) => {

@@ -47,7 +47,7 @@ export class Game extends Component {
     if (this.state.question.ans === val) {
       correct = correct + 1;
     }
-    let i = Math.floor(Math.random() * Math.floor(15));
+    let i = Math.floor(Math.random() * Math.floor(23));
     if (allQues.indexOf(i) < 0) {
       setTimeout(() => {
         this.setState({question: getQuestion(i)});
